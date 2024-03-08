@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANDER</title>
+    <link rel="icon" href="C:\Users\ypite\OneDrive\Робочий стіл\VANDER-сайт\Logo.png" type="icon/x-image">
+    <style>
+        body {
+            background-image: url('1671712698_kalix-club-p-fioletovii-gradient-fon-oboi-2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: IMPACT, sans-serif;
+            margin: 0;
+        }
+        header { 
+            background-color: #4f1057;
+            padding: 10px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px; /* Задайте фіксовану висоту шапки */
+        }
+        nav {
+            text-align: center;
+            margin-left: auto; /* Розташування тексту nav справа від шапки */
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .center-content {
+            text-align: center;
+        }
+        .round-button {
+            background-color: #e75480; /* Темно-рожевий колір */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px; /* Радіус для створення круглої форми */
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px; /* Відступ від тексту */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="Logo.png" width="35" height="35">
+            <font color="purple" size="20">VANDER</font>
+        </div>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="#" onclick="copyTextAndAlert('vander.pp.ua')">Почати грати</a>
+            <a href="pravila.html" target="_blank">Правила</a>
+        </nav>
+    </header>
+    <div class="center-content">
+        <font color="#e75480" size="5">
+            <h3>Вибачте, сайт не готовий:(</h3>
+        </font>
+        <font color="white" size="5">
+            <p>На жаль, в мене немає ідей на сайт:(</p>
+            <p>Через деякий час тут буде потрібна інформація:)</p>
+            <img src="Logo.png">
+            <br>
+            <a href="https://discord.gg/gEfREVT4Tq" class="round-button" target="_blank">Діскорд</a>
+            <a href="#" class="round-button" target="_blank">Мапа серверу</a> <!-- Нова кнопка справа -->
+            <a href="#" class="round-button" target="_blank">Встановити сбірку</a> <!-- Нова кнопка зліва -->
+        </font>
+    </div>
+
+    <script>
+        function copyTextAndAlert(text) {
+            var copyText = document.createElement("textarea");
+            copyText.value = text;
+            document.body.appendChild(copyText);
+            copyText.select();
+            document.execCommand('copy');
+            document.body.removeChild(copyText);
+            alert('Айпі скопійоване');
+        }
+    </script>
+    <footer style="background-color: #4f1057; color: white; text-align: center; padding: 10px; position: absolute; bottom: 0; width: 100%;">
+        <p>&copy; 2024 VANDER. Усі права захищені.</p>
+    </footer>
+</body>
+</html>
