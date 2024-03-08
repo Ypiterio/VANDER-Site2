@@ -28,10 +28,15 @@
             margin-left: auto; /* Розташування тексту nav справа від шапки */
         }
         nav a {
+            display: none; /* Початково ховаємо тексти в шапці */
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
+        }
+        .menu-icon {
+            display: inline-block;
+            cursor: pointer;
         }
         .center-content {
             text-align: center;
@@ -46,6 +51,29 @@
             font-size: 16px;
             margin-top: 20px; /* Відступ від тексту */
         }
+        .side-panel {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #4f1057;
+            padding-top: 60px;
+            transition: 0.5s;
+            overflow-x: hidden;
+        }
+        .side-panel a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .side-panel a:hover {
+            background-color: #e75480;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -53,6 +81,9 @@
         <div>
             <img src="Logo.png" width="35" height="35">
             <font color="purple" size="20">VANDER</font>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <img src="menu_icon.png" width="30" height="30" alt="Menu">
         </div>
         <nav>
             <a href="index.html">Головна</a>
@@ -75,6 +106,12 @@
         </font>
     </div>
 
+    <div class="side-panel" id="sidePanel">
+        <a href="index.html">Головна</a>
+        <a href="#" onclick="copyTextAndAlert('vander.pp.ua')">Почати грати</a>
+        <a href="pravila.html" target="_blank">Правила</a>
+    </div>
+
     <script>
         function copyTextAndAlert(text) {
             var copyText = document.createElement("textarea");
@@ -85,7 +122,17 @@
             document.body.removeChild(copyText);
             alert('Айпі скопійоване');
         }
+
+        function toggleMenu() {
+            var sidePanel = document.getElementById('sidePanel');
+            if (sidePanel.style.right === "0px") {
+                sidePanel.style.right = "-250px";
+            } else {
+                sidePanel.style.right = "0px";
+            }
+        }
     </script>
+
     <footer style="background-color: #4f1057; color: white; text-align: center; padding: 10px; position: absolute; bottom: 0; width: 100%;">
         <p>&copy; 2024 VANDER. Усі права захищені.</p>
     </footer>
