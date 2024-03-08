@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VANDER</title>
-    <link rel="icon" href="Logo.png" type="icon/x-image">
+    <link rel="icon" href="C:\Users\ypite\OneDrive\Робочий стіл\VANDER-сайт\Logo.png" type="icon/x-image">
     <style>
         body {
             background-image: url('1671712698_kalix-club-p-fioletovii-gradient-fon-oboi-2.jpg');
@@ -21,45 +21,59 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 60px; /* Задайте фіксовану висоту шапки */
+            height: 60px; 
+        }
+        .menu-icon, .close-icon {
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        .menu-icon div {
+            height: 1px; 
+            background-color: white; 
+            margin: 10px 0; 
+            width: 25px; 
+        }
+        .close-icon {
+            font-size: 20px;
+            color: white;
+            display: none; 
         }
         nav {
-            text-align: center;
-            margin-left: auto; /* Розташування тексту nav справа від шапки */
+            text-align: left;
+            margin-left: 20px;
         }
         nav a {
-            display: none; /* Початково ховаємо тексти в шапці */
+            display: none; 
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
         }
-        .menu-icon {
-            display: inline-block;
-            cursor: pointer;
-        }
         .center-content {
             text-align: center;
+            margin-top: 60px; /* Регулюйте відстань від верху відповідно до висоти шапки */
+            margin-bottom: 60px; /* Регулюйте відстань від низу відповідно до висоти футера */
         }
         .round-button {
-            background-color: #e75480; /* Темно-рожевий колір */
+            background-color: #e75480; 
             color: white;
             padding: 10px 20px;
-            border-radius: 50px; /* Радіус для створення круглої форми */
+            border-radius: 50px;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin-top: 20px; /* Відступ від тексту */
+            margin-top: 20px; 
         }
         .side-panel {
             position: fixed;
-            top: 0;
+            top: 60px;
             right: -250px;
             width: 250px;
-            height: 100%;
+            height: calc(120% - 120px);
             background-color: #4f1057;
             padding-top: 60px;
-            transition: 0.5s;
+            transition: right 0.5s;
             overflow-x: hidden;
         }
         .side-panel a {
@@ -82,15 +96,19 @@
             <img src="Logo.png" width="35" height="35">
             <font color="purple" size="20">VANDER</font>
         </div>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <img src="menu_icon.png" width="30" height="30" alt="Menu">
-        </div>
         <nav>
-            <a href="index.html">Головна</a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="close-icon" onclick="toggleMenu()">✕</div>
+            <a href="https://vander.diaka.ua/vander">Донат</a>
             <a href="#" onclick="copyTextAndAlert('vander.pp.ua')">Почати грати</a>
             <a href="pravila.html" target="_blank">Правила</a>
         </nav>
     </header>
+
     <div class="center-content">
         <font color="#e75480" size="5">
             <h3>Вибачте, сайт не готовий:(</h3>
@@ -101,13 +119,15 @@
             <img src="Logo.png">
             <br>
             <a href="https://discord.gg/gEfREVT4Tq" class="round-button" target="_blank">Діскорд</a>
-            <a href="http://d5.apexnodes.xyz:25174/#world;flat;16796,64,3052;0" class="round-button" target="_blank">Мапа серверу</a> <!-- Нова кнопка справа -->
-            <a href="https://discord.com/channels/1175559265977630790/1192847982828191856" class="round-button" target="_blank">Встановити сбірку</a> <!-- Нова кнопка зліва -->
+            <a href="http://d5.apexnodes.xyz:25174/#world;flat;16796,64,3052;0" class="round-button" target="_blank">Мапа серверу</a>
+            <a href="https://discord.com/channels/1175559265977630790/1192847982828191856" class="round-button" target="_blank">Встановити сбірку</a>
         </font>
     </div>
 
     <div class="side-panel" id="sidePanel">
-        <a href="index.html">Головна</a>
+		<img src="Logo.png" width="35" height="35">
+        <font color="purple" size="20">VANDER</font>
+        <hr color="purple"><a href="https://vander.diaka.ua/vander">Донат</a></hr>
         <a href="#" onclick="copyTextAndAlert('vander.pp.ua')">Почати грати</a>
         <a href="pravila.html" target="_blank">Правила</a>
     </div>
@@ -125,10 +145,14 @@
 
         function toggleMenu() {
             var sidePanel = document.getElementById('sidePanel');
-            if (sidePanel.style.right === "0px") {
-                sidePanel.style.right = "-250px";
-            } else {
+            if (sidePanel.style.right === "-250px") {
                 sidePanel.style.right = "0px";
+                document.querySelector('.menu-icon').style.display = 'none';
+                document.querySelector('.close-icon').style.display = 'inline-block';
+            } else {
+                sidePanel.style.right = "-250px";
+                document.querySelector('.menu-icon').style.display = 'inline-block';
+                document.querySelector('.close-icon').style.display = 'none';
             }
         }
     </script>
@@ -138,3 +162,4 @@
     </footer>
 </body>
 </html>
+
